@@ -6,8 +6,9 @@ from flask import Flask
 
 app = Flask(__name__)
 app.config.from_object('config')
+app.secret_key = '123'
 
-@app.before_first_request()
+@app.before_first_request
 def init_db():
     Database.initialize()
 
